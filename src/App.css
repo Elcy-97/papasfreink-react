@@ -1,0 +1,607 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial;
+  text-align: center;
+  background-color: #dddbdb;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  color: #7b2cbf;
+}
+
+/* TARJETAS - Ahora con GRID, no inline-block */
+.menu-grande {
+  background: #fff;
+  margin: 0;
+  padding: 30px 15px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+.menu-grande h2 {
+  color: #7b2cbf;
+  margin-top: 40px;
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.tarjeta {
+  background: white;
+  color: #222;
+  padding: 15px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 320px;
+  min-height: 390px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.tarjeta h2 {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #222 !important;
+}
+
+.tarjeta p {
+  color: #333 !important;
+}
+
+.boton {
+  background-color: #7b2cbf;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* BARRA DE ARRIBA */
+.navbar {
+  background-color: #7b2cbf;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* EL CUADRITO QUE DESPLIEGA */
+.dropdown {
+  position: relative;
+}
+
+.menu-desplegable {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background: white;
+  border-radius: 10px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 200;
+}
+
+.menu-desplegable a {
+  color: #222 !important;
+  padding: 12px;
+  text-decoration: none;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-desplegable a:hover {
+  background: #f0e6ff;
+}
+
+/* SECCIONES DE ABAJO */
+.seccion {
+  background: white;
+  color: #222;
+  margin: 0;
+  padding: 25px 15px;
+  width: 100%;
+}
+
+.foto-papa {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.cantidad-controles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 12px 0;
+}
+
+.cantidad-controles button {
+  width: 35px;
+  height: 35px;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  background-color: #7b2cbf;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.cantidad-controles span {
+  font-size: 20px;
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
+.boton-carrito {
+  background-color: #7b2cbf;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.boton-carrito:hover {
+  background-color: #5a1f94;
+  transform: scale(1.02);
+}
+
+.cantidad-controles button:hover {
+  background-color: #5a1f94;
+  transform: scale(1.1);
+}
+
+.boton-carrito, .cantidad-controles button {
+  transition: all 0.2s ease;
+}
+
+.seccion-pedido {
+  background: white;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: calc(100% - 30px);
+}
+
+.item-pedido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.boton-pedir {
+  background-color: #7b2cbf;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.boton-pedir:hover {
+  background-color: #5a1f94;
+}
+
+.seccion-pago {
+  background: #f3e8ff;
+  max-width: 500px;
+  margin: 20px auto 40px;
+  padding: 20px;
+  border-radius: 15px;
+  width: calc(100% - 30px);
+}
+
+.input-pago {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.boton-volver {
+  background: none;
+  border: none;
+  color: #7b2cbf;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.boton-borrar {
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.boton-vaciar {
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.seccion-nosotros {
+  max-width: 750px;
+  margin: 20px auto;
+  padding: 25px 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.seccion-nosotros h2 {
+  color: #6d28d9;
+  font-size: 28px;
+}
+
+.seccion-nosotros p {
+  color: #444;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 650px;
+  margin: 10px auto;
+}
+
+.seccion-direccion h2 {
+  color: #6d28d9;
+  font-size: 25px;
+}
+
+.seccion-contacto h2 {
+  color: #6d28d9;
+  font-size: 25px;
+}
+
+.nosotros-3 {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.nosotros-3 div {
+  background-color: #ede6e6;
+  padding: 15px;
+  border-radius: 15px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.titulo-pedidas {
+  color: #4c1d95;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin: 30px 0 20px 0;
+}
+
+.titulo-casi {
+  color: #4c1d95 !important;
+  text-align: center;
+  font-size: 30px;
+}
+
+.hero {
+  background-image: url('/imagen.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+  border-radius: 20px;
+  margin: 20px;
+  gap: 18px;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  font-size: 70px;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 2px;
+  color: #dbd6e1;
+}
+
+.hero p {
+  font-size: 22px;
+  margin: 0;
+  letter-spacing: 1px;
+  color: #dbd6e1;
+}
+
+.hero a {
+  background: #2563eb;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* ============ RESPONSIVE ============ */
+
+/* TABLET - 900px o menos */
+@media (max-width: 900px) {
+  .menu-grande {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero h1 {
+    font-size: 50px;
+  }
+  .hero {
+    min-height: 400px;
+  }
+}
+
+/* CELULAR - 600px o menos */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 12px 15px;
+    justify-content: center;
+    text-align: center;
+  }
+  .logo {
+    font-size: 19px;
+    width: 100%;
+  }
+  .links {
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+  }
+  .link-btn {
+    font-size: 14px;
+  }
+  .menu-desplegable {
+    right: -50px;
+    width: 200px;
+  }
+
+  .menu-grande {
+    grid-template-columns: 1fr;
+    padding: 20px 12px;
+    gap: 15px;
+  }
+  .tarjeta {
+    max-width: 100%;
+    min-height: auto;
+  }
+
+  .hero {
+    margin: 10px;
+    min-height: 320px;
+    border-radius: 15px;
+    padding: 30px 15px;
+    gap: 12px;
+  }
+  .hero h1 {
+    font-size: 38px;
+    letter-spacing: 1px;
+  }
+  .hero p {
+    font-size: 17px;
+  }
+  .hero a {
+    padding: 12px 25px;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .seccion-pedido, .seccion-pago {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .nosotros-3 div {
+    min-width: 100%;
+  }
+
+  .titulo-pedidas, .titulo-casi {
+    font-size: 24px;
+    padding: 0 10px;
+  }
+
+  .seccion-nosotros h2 {
+    font-size: 24px;
+  }
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.seccion-pedido h2{
+   color: #4c1d95 !important;
+}
+
+/* Para que se vean las letras de Bebidas */
+h2 {
+  color: #2b0a4a !important;
+  font-size: 34px;
+}
+
+.tarjeta h3, .tarjeta p {
+  color: #222222 !important;
+  font-size: 22px;
+}
+
+/* Más espacio entre las papas y Bebidas */
+.menu-grid {
+  margin-bottom: 60px !important;
+}
+
+h2 {
+  margin-top: 60px !important;
+  padding-top: 20px !important;
+}
+
+/* Quitar hueco foto - nombre, para TODAS las tarjetas */
+.menu-grid > div img {
+  margin-bottom: 5px !important;
+  padding-bottom: 0px !important;
+  height: auto !important;
+}
+
+.menu-grid > div h3,
+.menu-grid > div h2 {
+  margin-top: 5px !important;
+  padding-top: 0px !important;
+}
+
+.menu-grid > div {
+  padding-top: 10px !important;
+  gap: 5px !important;
+}
+
+/* Que todas las fotos queden del mismo tamaño */
+.menu-grid > div img {
+  height: 200px !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+.pie-pagina {
+  text-align: center !important;
+  padding: 40px 20px 30px 20px !important;
+  margin-top: 60px !important;
+}
+
+.pie-pagina p {
+  color: #888 !important;
+  font-size: 16px !important;
+  text-align: center !important;
+}
+
+/* Que la página ocupe TODO el ancho en pantalla grande */
+body, #root {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#root > div {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0px !important;
+  box-sizing: border-box !important;
+}
+
+/* Que se acomode sola cuando la ventana se hace pequeña */
+.menu-grid, .featured-grid, .popular-grid, .bebidas-grid, .drinks-grid, .menu-completo, div[class*="grid"] {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 30px !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+  padding: 30px !important;
+  box-sizing: border-box !important;
+}
+
+.menu-grid > div, .featured-grid > div, .popular-grid > div, .bebidas-grid > div, .drinks-grid > div, .menu-completo > div, div[class*="grid"] > div {
+  flex: none !important;
+  max-width: none !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  overflow-wrap: break-word !important;
+}
+
