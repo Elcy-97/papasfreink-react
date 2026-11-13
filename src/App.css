@@ -571,6 +571,16 @@ h2 {
   text-align: center !important;
 }
 
+@media (min-width: 768px) {
+  .pie-pagina {
+    text-align: right !important;
+    padding: 40px 40px 30px 20px !important;
+  }
+  .pie-pagina p {
+    text-align: right !important;
+  }
+}
+
 /* Que la página ocupe TODO el ancho en pantalla grande */
 body, #root {
   width: 100% !important;
