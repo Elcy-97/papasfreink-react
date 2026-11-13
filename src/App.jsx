@@ -37,7 +37,10 @@ function TarjetaPapa(props) {
 function App() {
   const [pagina, setPagina] = useState('inicio')
   const [carrito, setCarrito] = useState([])
-const [mostrarPago, setMostrarPago] = useState(false)
+  const [mostrarPago, setMostrarPago] = useState(false)
+  const [nombre, setNombre] = useState("");
+  const [direccion, setDireccion] = useState("");
+  const [metodoPago, setMetodoPago] = useState("Efectivo");
 
 function agregarAlCarrito(producto, cantidad) {
   const existe = carrito.find(item => item.nombre === producto.nombre)
@@ -62,6 +65,16 @@ function vaciarCarrito() {
 
 const total = carrito.reduce((suma, item) => suma + (item.precio * item.cantidad), 0)
 
+const enviarPedidoWhatsApp = () => {
+  if (!nombre || !direccion) {
+    alert("Porfa escribe tu nombre y tu dirección");
+    return;
+  }
+  const detalle = carrito.map((item) => `${item.nombre} x ${item.cantidad} - $${(item.precio * item.cantidad).toLocaleString("es-CO")}`).join("\n");
+  const mensaje = `Hola PapasFrink! Quiero hacer un pedido:\n\n${detalle}\n\nTotal a pagar: $${total.toLocaleString("es-CO")}\n\nNombre: ${nombre}\nDirección: ${direccion}\nPago con: ${metodoPago}`;
+  window.open(`https://wa.me/573122908061?text=${encodeURIComponent(mensaje)}`, "_blank");
+};
+
    if (pagina === 'pago') {
   return (
     <div>
@@ -71,16 +84,16 @@ const total = carrito.reduce((suma, item) => suma + (item.precio * item.cantidad
       <p key={i}>{item.nombre} x {item.cantidad} - ${(item.precio * item.cantidad).toLocaleString("es-CO")}</p>
     ))}
     <h3>Total a pagar: ${total.toLocaleString("es-CO")}</h3>
-    <input placeholder="Tu nombre" className="input-pago" />
-    <input placeholder="Tu dirección" className="input-pago" />
-    <select className="input-pago">
-      <option>Efectivo</option>
-      <option>Nequi</option>
-      <option>Tarjeta</option>
-    </select>
-    <button className="boton-pedir" onClick={() => alert('¡Pedido confirmado! Gracias por pedir en PapasFrink 💜')}>
-      Confirmar Pedido ✅
-    </button>
+   <input placeholder="Tu nombre" className="input-pago" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+   <input placeholder="Tu dirección" className="input-pago" value={direccion} onChange={(e) => setDireccion(e.target.value)} />
+<select className="input-pago" value={metodoPago} onChange={(e) => setMetodoPago(e.target.value)}>
+  <option>Efectivo</option>
+  <option>Nequi</option>
+  <option>Tarjeta</option>
+</select>
+   <button className="boton-pedir" onClick={enviarPedidoWhatsApp}>
+  Confirmar Pedido ✅
+</button>
     <button className="boton-volver" onClick={() =>setPagina('menu')}>⬅️ Volver</button>
   </div>
   </div>
