@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 function TarjetaPapa(props) {
@@ -41,6 +41,10 @@ function App() {
   const [nombre, setNombre] = useState("");
   const [direccion, setDireccion] = useState("");
   const [metodoPago, setMetodoPago] = useState("Efectivo");
+
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, [pagina]);
 
 function agregarAlCarrito(producto, cantidad) {
   const existe = carrito.find(item => item.nombre === producto.nombre)
