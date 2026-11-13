@@ -220,7 +220,7 @@ const total = carrito.reduce((suma, item) => suma + (item.precio * item.cantidad
         <h2>📱 Contáctanos</h2>
         <p>WhatsApp: 312 290 8061</p>
         <p>Instagram: @papasfrink</p>
-        <button className="boton">Pedir por WhatsApp</button>
+       <a className="boton" href="https://wa.me/573122908061?text=Hola%20PapasFrink!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer">Pedir por WhatsApp</a>
       </div>
 
             <footer className="pie-pagina">
