@@ -73,6 +73,7 @@ const enviarPedidoWhatsApp = () => {
   const detalle = carrito.map((item) => `${item.nombre} x ${item.cantidad} - $${(item.precio * item.cantidad).toLocaleString("es-CO")}`).join("\n");
   const mensaje = `Hola PapasFrink! Quiero hacer un pedido:\n\n${detalle}\n\nTotal a pagar: $${total.toLocaleString("es-CO")}\n\nNombre: ${nombre}\nDirección: ${direccion}\nPago con: ${metodoPago}`;
   window.open(`https://wa.me/573122908061?text=${encodeURIComponent(mensaje)}`, "_blank");
+  setCarrito([]);
 };
 
    if (pagina === 'pago') {
